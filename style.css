@@ -125,6 +125,8 @@ strong {
   animation: ambientBlue 20s ease-in-out infinite alternate;
 }
 
+/* Header */
+
 .site-header {
   position: sticky;
   top: 0;
@@ -281,6 +283,8 @@ strong {
   background: var(--text-main);
 }
 
+/* Global Layout */
+
 .section {
   width: min(var(--max-width), calc(100% - 36px));
   margin: 0 auto;
@@ -312,7 +316,7 @@ h1 {
   font-family: var(--font-heading);
   font-size: clamp(3.4rem, 7.4vw, 7.2rem);
   font-weight: 700;
-  line-height: 0.96;
+  line-height: 1;
   letter-spacing: -0.052em;
 }
 
@@ -652,7 +656,7 @@ h1 span {
 .legal-card h2 {
   font-family: var(--font-heading);
   font-size: clamp(2.3rem, 4vw, 4.2rem);
-  line-height: 1.02;
+  line-height: 1.08;
   margin-bottom: 20px;
 }
 
@@ -661,7 +665,7 @@ h1 span {
 .legal-card h3 {
   font-family: var(--font-heading);
   font-size: 1.75rem;
-  line-height: 1.12;
+  line-height: 1.16;
   margin-bottom: 16px;
 }
 
@@ -733,7 +737,7 @@ h1 span {
   justify-content: space-between;
   align-items: center;
   gap: 14px;
-  margin-bottom: 34px;
+  margin-bottom: 26px;
 }
 
 .project-index {
@@ -777,7 +781,7 @@ h1 span {
 .section-heading h2 {
   font-family: var(--font-heading);
   font-size: clamp(2.7rem, 5vw, 5.2rem);
-  line-height: 1;
+  line-height: 1.04;
   letter-spacing: -0.04em;
 }
 
@@ -802,7 +806,7 @@ h1 span {
 .cta-card h2 {
   font-family: var(--font-heading);
   font-size: clamp(2.7rem, 5vw, 5.2rem);
-  line-height: 1;
+  line-height: 1.04;
   margin-bottom: 22px;
 }
 
@@ -816,11 +820,81 @@ h1 span {
 
 .project-page-grid {
   display: grid;
-  gap: 18px;
+  gap: 22px;
 }
 
 .project-page-card {
-  min-height: 390px;
+  min-height: 0;
+}
+
+.project-preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 26px;
+  border-radius: 22px;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(201, 168, 106, 0.16), transparent 45%),
+    rgba(3, 3, 3, 0.45);
+  border: 1px solid rgba(201, 168, 106, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 18px 44px rgba(0, 0, 0, 0.32);
+}
+
+.project-preview::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 48%, rgba(7, 6, 5, 0.42) 100%),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.08), transparent 30%, transparent 70%, rgba(79, 143, 184, 0.08));
+}
+
+.project-preview img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(0.92) contrast(1.04) brightness(0.86);
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+.project-card:hover .project-preview img {
+  transform: scale(1.035);
+  filter: saturate(1) contrast(1.06) brightness(0.94);
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.project-action-btn {
+  min-height: 46px;
+  padding: 0 20px;
+  font-size: 0.92rem;
+}
+
+.project-static-action {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-radius: 999px;
+  color: var(--text-soft);
+  background: rgba(3, 3, 3, 0.34);
+  border: 1px solid rgba(201, 168, 106, 0.22);
+  font-size: 0.9rem;
+  font-weight: 800;
 }
 
 .tech-list {
@@ -1025,7 +1099,7 @@ h1 span {
 .career-item h3 {
   font-family: var(--font-heading);
   font-size: 1.75rem;
-  line-height: 1.12;
+  line-height: 1.16;
   margin-bottom: 16px;
 }
 
@@ -1052,6 +1126,33 @@ h1 span {
 
 .contact-card .page-icon {
   margin: 0 auto 28px;
+}
+
+.contact-card h1,
+.legal-card h1 {
+  max-width: 100%;
+  margin-bottom: 30px;
+  font-size: clamp(3rem, 5.2vw, 5.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.contact-card h1 span,
+.legal-card h1 span {
+  display: block;
+  margin-top: 0.06em;
+}
+
+.contact-card > p,
+.legal-card > p {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.85;
 }
 
 .contact-grid {
@@ -1352,7 +1453,7 @@ h1 span {
 
   h1 {
     font-size: clamp(3.05rem, 15vw, 5rem);
-    line-height: 1;
+    line-height: 1.04;
   }
 
   .signature {
@@ -1393,7 +1494,21 @@ h1 span {
   .project-head {
     align-items: flex-start;
     flex-direction: column;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
+  }
+
+  .project-preview {
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
+
+  .project-actions {
+    flex-direction: column;
+  }
+
+  .project-action-btn,
+  .project-static-action {
+    width: 100%;
   }
 
   .career-line {
@@ -1415,46 +1530,82 @@ h1 span {
   .text-card h2,
   .legal-card h2 {
     font-size: clamp(2.4rem, 12vw, 4rem);
-    line-height: 1.04;
+    line-height: 1.08;
+  }
+
+  .contact-card h1,
+  .legal-card h1 {
+    font-size: clamp(2.35rem, 10vw, 3.8rem);
+    line-height: 1.12;
+    margin-bottom: 22px;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .contact-card p,
+  .legal-card p,
+  .legal-card address {
+    font-size: 0.98rem;
+    line-height: 1.8;
   }
 
   .about-hero {
+    position: relative;
     min-height: auto;
-  }
-
-  .about-hero::before {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(7, 6, 5, 0.72) 0%,
-        rgba(7, 6, 5, 0.92) 42%,
-        rgba(7, 6, 5, 0.98) 100%
-      ),
-      radial-gradient(circle at 68% 18%, rgba(201, 168, 106, 0.12), transparent 34%);
+    padding: 0;
+    overflow: hidden;
   }
 
   .about-hero-bg {
-    height: 390px;
+    position: absolute;
     inset: 0 0 auto 0;
+    height: 430px;
+    z-index: 0;
+    display: block;
+    overflow: hidden;
   }
 
   .about-hero-bg img {
+    display: none;
+  }
+
+  .about-hero-bg::before {
+    content: "";
     position: absolute;
-    right: -18%;
-    top: 0;
-    width: 118%;
-    height: 390px;
-    min-height: 0;
-    transform: none;
-    opacity: 0.34;
-    object-position: center top;
-    filter: saturate(0.7) contrast(1.02) brightness(0.6);
-    mask-image: linear-gradient(to bottom, black 0%, black 48%, transparent 100%);
-    animation: none;
+    inset: 0;
+    background-image: url("assets/christoph-portrait.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    opacity: 0.72;
+    filter: saturate(0.9) contrast(1.05) brightness(0.86);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 58%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 58%, transparent 100%);
+  }
+
+  .about-hero::before {
+    z-index: 1;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(7, 6, 5, 0.26) 0%,
+        rgba(7, 6, 5, 0.56) 34%,
+        rgba(7, 6, 5, 0.92) 72%,
+        rgba(7, 6, 5, 0.98) 100%
+      );
+  }
+
+  .about-hero::after {
+    z-index: 2;
+    opacity: 0.14;
   }
 
   .about-hero-content {
-    padding: 72px 0 76px;
+    position: relative;
+    z-index: 5;
+    width: min(var(--max-width), calc(100% - 28px));
+    padding-top: 300px;
+    padding-bottom: 72px;
   }
 }
 
@@ -1477,6 +1628,10 @@ h1 span {
 
   .choice-card h2 {
     font-size: 2rem;
+  }
+
+  .project-preview {
+    aspect-ratio: 4 / 3;
   }
 
   .footer {
