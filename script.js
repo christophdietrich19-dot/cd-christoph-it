@@ -1,60 +1,57 @@
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-const year = document.getElementById("year");
-const siteHeader = document.getElementById("siteHeader");
+document.addEventListener("DOMContentLoaded", () => {
+  const siteHeader = document.getElementById("siteHeader");
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+  const yearElement = document.getElementById("year");
 
-if (year) {
-  year.textContent = new Date().getFullYear();
-}
-
-if (menuToggle && navLinks) {
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
-
-  const links = navLinks.querySelectorAll("a");
-
-  links.forEach((link) => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("active");
-    });
-  });
-}
-
-const updateHeader = () => {
-  if (!siteHeader) return;
-
-  if (window.scrollY > 18) {
-    siteHeader.classList.add("scrolled");
-  } else {
-    siteHeader.classList.remove("scrolled");
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
   }
-};
 
-window.addEventListener("scroll", updateHeader);
-updateHeader();
-
-const revealElements = document.querySelectorAll(
-  ".section-heading, .text-card, .project-card, .page-panel, .career-card, .cta-card, .contact-card, .legal-card"
-);
-
-revealElements.forEach((element) => {
-  element.classList.add("reveal");
-});
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
+  if (siteHeader) {
+    const handleScroll = () => {
+      if (window.scrollY > 12) {
+        siteHeader.classList.add("scrolled");
+      } else {
+        siteHeader.classList.remove("scrolled");
       }
-    });
-  },
-  {
-    threshold: 0.14,
-  }
-);
+    };
 
-revealElements.forEach((element) => {
-  observer.observe(element);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+  }
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+      });
+    });
+  }
+
+  const revealElements = document.querySelectorAll(".reveal");
+
+  if (revealElements.length > 0) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.16,
+      }
+    );
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  }
 });
