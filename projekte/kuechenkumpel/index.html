@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Küchenkumpel Case Study | Christoph Dietrich</title>
+
+  <meta
+    name="description"
+    content="Case Study zum Projekt Küchenkumpel von Christoph Dietrich. Eine App-Idee rund um Küche, Rezepte, Alltag, Nutzerführung, Testphase und echte Rückmeldungen."
+  />
+
+  <link rel="icon" type="image/png" href="../../assets/favicon.png" />
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../project-tabs.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    .case-hero {
+      position: relative;
+      width: 100%;
+      min-height: calc(92vh - 78px);
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .case-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(7, 6, 5, 0.98) 0%,
+          rgba(7, 6, 5, 0.88) 34%,
+          rgba(7, 6, 5, 0.56) 62%,
+          rgba(7, 6, 5, 0.88) 100%
+        ),
+        linear-gradient(
+          180deg,
+          rgba(7, 6, 5, 0.86) 0%,
+          rgba(7, 6, 5, 0.18) 44%,
+          rgba(7, 6, 5, 0.98) 100%
+        ),
+        radial-gradient(circle at 72% 32%, rgba(201, 168, 106, 0.2), transparent 34%),
+        radial-gradient(circle at 84% 70%, rgba(79, 143, 184, 0.18), transparent 34%);
+    }
+
+    .case-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .case-hero-bg img {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: min(70vw, 1080px);
+      height: 100%;
+      min-height: 720px;
+      transform: translateY(-50%);
+      object-fit: cover;
+      object-position: center center;
+      opacity: 0.72;
+      filter: saturate(0.78) contrast(1.06) brightness(0.72) blur(0.2px);
+      mask-image:
+        linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(0, 0, 0, 0.15) 8%,
+          black 30%,
+          black 76%,
+          transparent 100%
+        ),
+        linear-gradient(
+          180deg,
+          transparent 0%,
+          black 10%,
+          black 74%,
+          transparent 100%
+        );
+      mask-composite: intersect;
+    }
+
+    .case-hero-content {
+      position: relative;
+      z-index: 4;
+      width: min(var(--max-width), calc(100% - 36px));
+      margin: 0 auto;
+      padding: 96px 0 100px;
+    }
+
+    .case-hero h1 {
+      max-width: 980px;
+    }
+
+    .case-hero-text {
+      max-width: 760px;
+      margin-top: 32px;
+      color: var(--text-soft);
+      font-size: clamp(1rem, 1.35vw, 1.12rem);
+      line-height: 1.85;
+    }
+
+    .case-meta-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 36px;
+      max-width: 920px;
+    }
+
+    .case-meta-item {
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(3, 3, 3, 0.42);
+      border: 1px solid rgba(201, 168, 106, 0.16);
+      backdrop-filter: blur(14px);
+    }
+
+    .case-meta-item span {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .case-meta-item strong {
+      color: var(--text-main);
+      font-size: 0.94rem;
+      line-height: 1.35;
+    }
+
+    .case-study-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 18px;
+    }
+
+    .case-large-card {
+      padding: 34px;
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(145deg, rgba(201, 168, 106, 0.1), transparent 48%),
+        rgba(18, 15, 12, 0.82);
+      border: 1px solid rgba(201, 168, 106, 0.16);
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.36);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .case-large-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 14% 8%, rgba(229, 201, 139, 0.1), transparent 30%),
+        radial-gradient(circle at 86% 10%, rgba(79, 143, 184, 0.1), transparent 30%);
+      pointer-events: none;
+    }
+
+    .case-large-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .case-large-card h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.6rem, 5vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      margin-bottom: 22px;
+    }
+
+    .case-large-card p {
+      color: var(--text-soft);
+    }
+
+    .case-large-card p + p {
+      margin-top: 16px;
+    }
+
+    .case-stage-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .case-stage {
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 16px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(3, 3, 3, 0.34);
+      border: 1px solid rgba(255, 255, 255, 0.075);
+    }
+
+    .case-stage span {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      color: #150f09;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      font-weight: 900;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.32);
+    }
+
+    .case-stage h3 {
+      font-family: var(--font-heading);
+      font-size: 1.65rem;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .case-stage p {
+      color: var(--text-soft);
+      font-size: 0.96rem;
+    }
+
+    .case-board {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .case-board-column {
+      min-height: 250px;
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(3, 3, 3, 0.34);
+      border: 1px solid rgba(255, 255, 255, 0.075);
+    }
+
+    .case-board-column h3 {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 16px;
+      font-family: var(--font-body);
+      color: var(--text-main);
+      font-size: 0.9rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .case-board-column h3::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--gold-light);
+      box-shadow: 0 0 14px rgba(229, 201, 139, 0.36);
+    }
+
+    .case-ticket {
+      padding: 14px;
+      border-radius: 18px;
+      color: var(--text-soft);
+      background: rgba(18, 15, 12, 0.72);
+      border: 1px solid rgba(201, 168, 106, 0.12);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .case-ticket + .case-ticket {
+      margin-top: 10px;
+    }
+
+    .case-quote {
+      margin-top: 28px;
+      padding: 26px;
+      border-radius: 26px;
+      background:
+        linear-gradient(145deg, rgba(79, 143, 184, 0.12), transparent 46%),
+        rgba(3, 3, 3, 0.34);
+      border: 1px solid rgba(79, 143, 184, 0.2);
+    }
+
+    .case-quote p {
+      color: var(--text-main);
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3.2vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    .case-quote span {
+      display: block;
+      margin-top: 14px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .case-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .case-image-card {
+      position: relative;
+      min-height: 540px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: rgba(3, 3, 3, 0.48);
+      border: 1px solid rgba(201, 168, 106, 0.18);
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.36);
+    }
+
+    .case-image-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 540px;
+      display: block;
+      object-fit: cover;
+      object-position: center center;
+      filter: saturate(0.82) contrast(1.06) brightness(0.74);
+      transform: scale(1.02);
+    }
+
+    .case-image-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(7, 6, 5, 0.08), transparent 44%, rgba(7, 6, 5, 0.78)),
+        linear-gradient(90deg, rgba(7, 6, 5, 0.65), transparent 42%, rgba(7, 6, 5, 0.4));
+    }
+
+    .case-image-label {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      z-index: 3;
+      padding: 22px;
+      border-radius: 26px;
+      background: rgba(7, 6, 5, 0.62);
+      border: 1px solid rgba(201, 168, 106, 0.18);
+      backdrop-filter: blur(18px);
+    }
+
+    .case-image-label span {
+      color: var(--gold);
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .case-image-label h2 {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .case-image-label p {
+      color: var(--text-soft);
+    }
+
+    @media (max-width: 1080px) {
+      .case-meta-row,
+      .case-board {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .case-study-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-hero-bg img {
+        right: -12%;
+        width: min(86vw, 900px);
+      }
+    }
+
+    @media (max-width: 740px) {
+      .case-hero {
+        min-height: auto;
+      }
+
+      .case-hero-bg img {
+        width: 100%;
+        right: 0;
+        opacity: 0.56;
+      }
+
+      .case-hero-content {
+        width: min(var(--max-width), calc(100% - 28px));
+        padding: 86px 0 76px;
+      }
+
+      .case-meta-row,
+      .case-board {
+        grid-template-columns: 1fr;
+      }
+
+      .case-large-card {
+        padding: 24px;
+        border-radius: 26px;
+      }
+
+      .case-stage {
+        grid-template-columns: 1fr;
+      }
+
+      .case-image-card,
+      .case-image-card img {
+        min-height: 420px;
+      }
+
+      .case-actions {
+        flex-direction: column;
+      }
+
+      .case-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-background" aria-hidden="true">
+    <div class="grain"></div>
+    <div class="wood-lines"></div>
+    <div class="ambient ambient-gold"></div>
+    <div class="ambient ambient-blue"></div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar">
+      <a href="../../" class="brand" aria-label="Zur Startseite">
+        <span class="brand-logo-shell">
+          <img src="../../assets/logo-icon.png" alt="Christoph Dietrich Logo" class="brand-logo" />
+        </span>
+
+        <span class="brand-text">
+          <strong>Christoph Dietrich</strong>
+          <small>Digitale Lösungen mit Struktur</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="../../">Start</a>
+        <a href="../../projekte/">Projekte</a>
+        <a href="../../ueber-mich/">Über mich</a>
+        <a href="../../kontakt/">Kontakt</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="case-hero">
+      <div class="case-hero-bg">
+        <img src="../../assets/project-kuechenkumpel.png" alt="" aria-hidden="true" />
+      </div>
+
+      <div class="case-hero-content">
+        <p class="signature">Case Study · Küchenkumpel</p>
+
+        <h1>
+          Aus einer App-Idee
+          <span>wird echte Nutzung.</span>
+        </h1>
+
+        <p class="case-hero-text">
+          Küchenkumpel ist eine eigene Anwendungsidee rund um Küche, Rezepte, Alltag
+          und einen sympathischen digitalen Begleiter. Im Mittelpunkt steht nicht nur,
+          dass Funktionen vorhanden sind, sondern wie sich die App im echten Alltag anfühlt.
+        </p>
+
+        <p class="case-hero-text">
+          Aktuell wird die Anwendung von einer kleinen Gruppe getestet. Fehler,
+          Wünsche und Verbesserungsideen werden gesammelt und fließen Schritt für Schritt
+          in die Weiterentwicklung ein.
+        </p>
+
+        <div class="case-meta-row">
+          <div class="case-meta-item">
+            <span>Status</span>
+            <strong>Testphase</strong>
+          </div>
+
+          <div class="case-meta-item">
+            <span>Testgruppe</span>
+            <strong>7 Personen</strong>
+          </div>
+
+          <div class="case-meta-item">
+            <span>Feedback</span>
+            <strong>WhatsApp-Gruppe</strong>
+          </div>
+
+          <div class="case-meta-item">
+            <span>Technik</span>
+            <strong>HTML, CSS, JavaScript</strong>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a
+            href="https://christophdietrich19-dot.github.io/Kuechenkumpel/"
+            class="btn btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Demo öffnen
+          </a>
+
+          <a href="../konzepte/" class="btn btn-secondary">Zurück ins Register</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="case-study-grid">
+        <article class="case-large-card">
+          <span class="card-number">01</span>
+
+          <h2>Warum diese Idee?</h2>
+
+          <p>
+            Küchenkumpel ist aus dem Gedanken entstanden, eine App nicht nur als nüchternes
+            Werkzeug zu sehen, sondern als kleinen digitalen Begleiter im Alltag.
+          </p>
+
+          <p>
+            Es geht um Küche, Rezepte und Orientierung, aber auch um Tonalität:
+            Die Anwendung soll nicht kalt oder technisch wirken, sondern freundlich,
+            verständlich und ein bisschen charaktervoll.
+          </p>
+
+          <div class="case-quote">
+            <p>Eine App soll nicht nur funktionieren. Sie soll sich auch richtig anfühlen.</p>
+            <span>Leitgedanke hinter Küchenkumpel</span>
+          </div>
+        </article>
+
+        <aside class="case-image-card">
+          <img src="../../assets/project-kuechenkumpel.png" alt="Screenshot der Küchenkumpel-App" />
+
+          <div class="case-image-label">
+            <span>Live im Aufbau</span>
+            <h2>Küchenkumpel</h2>
+            <p>
+              Eine App-Idee mit eigener Figur, eigenem Ton und echtem Feedback aus der Nutzung.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <article class="case-large-card">
+        <span class="card-number">02</span>
+
+        <h2>Wie das Projekt wächst</h2>
+
+        <p>
+          Der wichtigste Teil ist nicht nur die erste Version, sondern die Weiterentwicklung.
+          Die Rückmeldungen aus der Testgruppe helfen dabei, die App aus Nutzersicht zu prüfen.
+        </p>
+
+        <div class="case-stage-list">
+          <div class="case-stage">
+            <span>01</span>
+            <div>
+              <h3>Idee entwickeln</h3>
+              <p>
+                Aus einem Alltagsthema entsteht ein App-Konzept mit eigener Richtung,
+                Tonalität und Figur.
+              </p>
+            </div>
+          </div>
+
+          <div class="case-stage">
+            <span>02</span>
+            <div>
+              <h3>Erste Version bauen</h3>
+              <p>
+                Die Grundstruktur wird mit HTML, CSS und JavaScript umgesetzt und als
+                Demo öffentlich erreichbar gemacht.
+              </p>
+            </div>
+          </div>
+
+          <div class="case-stage">
+            <span>03</span>
+            <div>
+              <h3>Testgruppe starten</h3>
+              <p>
+                Eine kleine Gruppe nutzt die App, achtet auf Fehler und sammelt Wünsche
+                für Verbesserungen.
+              </p>
+            </div>
+          </div>
+
+          <div class="case-stage">
+            <span>04</span>
+            <div>
+              <h3>Feedback auswerten</h3>
+              <p>
+                Meldungen werden gesammelt, sortiert und nach und nach in die Weiterentwicklung
+                übernommen.
+              </p>
+            </div>
+          </div>
+
+          <div class="case-stage">
+            <span>05</span>
+            <div>
+              <h3>Weiter verbessern</h3>
+              <p>
+                Die App wächst Schritt für Schritt weiter und wird dabei praktischer,
+                verständlicher und runder.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Feedback-Board</p>
+        <h2>Was aus der Testphase entsteht.</h2>
+        <p>
+          Die Rückmeldungen werden nicht einfach nebenbei gesammelt. Sie helfen dabei,
+          die Anwendung strukturierter zu verbessern und aus einer Demo ein echteres Projekt zu machen.
+        </p>
+      </div>
+
+      <div class="case-board">
+        <article class="case-board-column">
+          <h3>Gemeldet</h3>
+
+          <div class="case-ticket">
+            Kleine Fehler oder Unstimmigkeiten, die beim Testen auffallen.
+          </div>
+
+          <div class="case-ticket">
+            Wünsche zu Bedienung, Texten oder kleinen Funktionen.
+          </div>
+        </article>
+
+        <article class="case-board-column">
+          <h3>In Prüfung</h3>
+
+          <div class="case-ticket">
+            Rückmeldungen werden sortiert und auf Sinn, Aufwand und Wirkung geprüft.
+          </div>
+
+          <div class="case-ticket">
+            Nicht jeder Wunsch wird sofort umgesetzt, aber jeder Hinweis hilft beim Verstehen.
+          </div>
+        </article>
+
+        <article class="case-board-column">
+          <h3>In Umsetzung</h3>
+
+          <div class="case-ticket">
+            Verbesserungen werden Schritt für Schritt eingebaut und danach erneut getestet.
+          </div>
+
+          <div class="case-ticket">
+            Besonders wichtig sind mobile Ansicht, Verständlichkeit und Nutzergefühl.
+          </div>
+        </article>
+
+        <article class="case-board-column">
+          <h3>Nächste Version</h3>
+
+          <div class="case-ticket">
+            Ziel ist eine rundere, freundlichere und besser nutzbare App-Version.
+          </div>
+
+          <div class="case-ticket">
+            Küchenkumpel soll sich nicht nur wie eine Demo anfühlen, sondern wie ein kleiner Begleiter.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="content-grid">
+        <article class="text-card">
+          <span class="card-number">03</span>
+
+          <h2>Was ich daran lerne</h2>
+
+          <p>
+            Küchenkumpel zeigt mir, dass eine App nicht nur aus Funktionen besteht.
+            Gerade kleine Details entscheiden darüber, ob etwas verständlich wirkt,
+            gerne genutzt wird und im Alltag wirklich hilft.
+          </p>
+
+          <p>
+            Dazu gehören Aufbau, Sprache, Nutzerführung, Feedback und die Bereitschaft,
+            eine erste Version immer wieder zu verbessern.
+          </p>
+        </article>
+
+        <article class="text-card">
+          <span class="card-number">04</span>
+
+          <h2>Warum das beruflich wichtig ist</h2>
+
+          <p>
+            Auch in der IT geht es selten nur um Technik allein. Systeme und Anwendungen
+            müssen verständlich bleiben, Rückmeldungen ernst nehmen und zu echten Abläufen passen.
+          </p>
+
+          <p>
+            Genau diese Verbindung aus Technik, Struktur, Nutzerblick und praktischer
+            Verbesserung macht Küchenkumpel für mich zu einem besonders wertvollen Lernprojekt.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="cta-card">
+        <p class="eyebrow">Projekt öffnen</p>
+
+        <h2>Küchenkumpel direkt ausprobieren.</h2>
+
+        <p>
+          Die Demo ist öffentlich erreichbar und wird weiterentwickelt. Der aktuelle Stand
+          ist bewusst nicht als endgültiges Produkt gedacht, sondern als wachsendes Projekt
+          mit echter Testphase.
+        </p>
+
+        <div class="hero-actions">
+          <a
+            href="https://christophdietrich19-dot.github.io/Kuechenkumpel/"
+            class="btn btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Demo öffnen
+          </a>
+
+          <a href="../" class="btn btn-secondary">Zur Projektübersicht</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>Christoph Dietrich</strong>
+        <span>Digitale Lösungen mit Struktur</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="../../">Start</a>
+        <a href="../../projekte/">Projekte</a>
+        <a href="../../ueber-mich/">Über mich</a>
+        <a href="../../kontakt/">Kontakt</a>
+      </div>
+
+      <div class="footer-legal">
+        <a href="../../impressum/">Impressum</a>
+        <a href="../../datenschutz/">Datenschutz</a>
+      </div>
+
+      <p class="footer-copy">
+        © <span id="year"></span> Christoph Dietrich
+      </p>
+
+      <p class="footer-tech">
+        Aufgebaut mit HTML, CSS, JavaScript und GitHub Pages.
+      </p>
+    </div>
+  </footer>
+
+  <script src="../../script.js"></script>
+</body>
+</html>

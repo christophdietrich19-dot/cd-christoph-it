@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
     currentPath.endsWith("/cd-christoph-it/projekte/") ||
     currentPath.endsWith("/cd-christoph-it/projekte/index.html");
 
+  const isInsideProjectArea = currentPath.includes("/cd-christoph-it/projekte");
+
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
   }
@@ -218,6 +220,237 @@ document.addEventListener("DOMContentLoaded", () => {
       color: var(--text-main);
       font-size: 0.98rem;
       line-height: 1.25;
+    }
+
+    .featured-case-section {
+      width: min(var(--max-width), calc(100% - 36px));
+      margin: 34px auto 18px;
+      padding: 0;
+      position: relative;
+      z-index: 4;
+    }
+
+    .featured-case {
+      position: relative;
+      min-height: 500px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+      gap: 34px;
+      align-items: stretch;
+      border-radius: 38px;
+      overflow: hidden;
+      border: 1px solid rgba(201, 168, 106, 0.24);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(201, 168, 106, 0.18), transparent 34%),
+        radial-gradient(circle at 88% 28%, rgba(79, 143, 184, 0.15), transparent 32%),
+        linear-gradient(145deg, rgba(27, 20, 14, 0.96), rgba(5, 4, 3, 0.94));
+      box-shadow:
+        0 34px 100px rgba(0, 0, 0, 0.56),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .featured-case::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        linear-gradient(115deg, rgba(255, 255, 255, 0.06), transparent 24%, transparent 72%, rgba(201, 168, 106, 0.08)),
+        repeating-linear-gradient(
+          115deg,
+          transparent 0px,
+          transparent 28px,
+          rgba(201, 168, 106, 0.045) 29px,
+          transparent 31px
+        );
+      opacity: 0.45;
+      mix-blend-mode: screen;
+    }
+
+    .featured-case-copy {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(30px, 4vw, 58px);
+    }
+
+    .featured-case-kicker {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 26px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      color: var(--gold-light);
+      background: rgba(3, 3, 3, 0.42);
+      border: 1px solid rgba(201, 168, 106, 0.22);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      backdrop-filter: blur(12px);
+    }
+
+    .featured-case-kicker::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(79, 143, 184, 0.98);
+      box-shadow: 0 0 18px rgba(79, 143, 184, 0.62);
+      animation: premiumPulse 2.2s ease-in-out infinite;
+    }
+
+    .featured-case h2 {
+      max-width: 720px;
+      font-family: var(--font-heading);
+      font-size: clamp(3.3rem, 6vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      margin-bottom: 24px;
+    }
+
+    .featured-case h2 span {
+      display: block;
+      color: var(--gold-light);
+    }
+
+    .featured-case p {
+      max-width: 720px;
+      color: var(--text-soft);
+      font-size: clamp(1rem, 1.2vw, 1.08rem);
+      line-height: 1.85;
+    }
+
+    .featured-case p + p {
+      margin-top: 16px;
+    }
+
+    .featured-case-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .featured-case-meta div {
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(3, 3, 3, 0.34);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .featured-case-meta span {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .featured-case-meta strong {
+      color: var(--text-main);
+      font-size: 0.92rem;
+      line-height: 1.35;
+    }
+
+    .featured-case-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .featured-case-visual {
+      position: relative;
+      z-index: 3;
+      min-height: 500px;
+      overflow: hidden;
+      border-left: 1px solid rgba(201, 168, 106, 0.16);
+      background: rgba(3, 3, 3, 0.24);
+    }
+
+    .featured-case-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(7, 6, 5, 0.82), rgba(7, 6, 5, 0.18) 36%, rgba(7, 6, 5, 0.55)),
+        linear-gradient(180deg, rgba(7, 6, 5, 0.22), transparent 42%, rgba(7, 6, 5, 0.76));
+    }
+
+    .featured-case-visual::after {
+      content: "TESTPHASE";
+      position: absolute;
+      right: 26px;
+      bottom: 26px;
+      z-index: 4;
+      padding: 9px 12px;
+      border-radius: 999px;
+      color: var(--gold-light);
+      background: rgba(3, 3, 3, 0.48);
+      border: 1px solid rgba(201, 168, 106, 0.22);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      backdrop-filter: blur(12px);
+    }
+
+    .featured-case-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      display: block;
+      object-fit: cover;
+      object-position: center center;
+      filter: saturate(0.72) contrast(1.06) brightness(0.74);
+      transform: scale(1.035);
+    }
+
+    .featured-case-mini {
+      position: absolute;
+      left: 28px;
+      top: 28px;
+      z-index: 4;
+      display: grid;
+      gap: 10px;
+      max-width: 300px;
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(7, 6, 5, 0.62);
+      border: 1px solid rgba(201, 168, 106, 0.2);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.38);
+      backdrop-filter: blur(18px);
+    }
+
+    .featured-case-mini small {
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .featured-case-mini strong {
+      color: var(--text-main);
+      font-family: var(--font-heading);
+      font-size: 1.9rem;
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+
+    .featured-case-mini span {
+      color: var(--text-soft);
+      font-size: 0.9rem;
+      line-height: 1.55;
     }
 
     .premium-reveal {
@@ -494,6 +727,20 @@ document.addEventListener("DOMContentLoaded", () => {
       box-shadow: 0 0 18px rgba(201, 168, 106, 0.22);
     }
 
+    .case-study-action {
+      border-color: rgba(79, 143, 184, 0.42);
+      background:
+        linear-gradient(145deg, rgba(79, 143, 184, 0.14), transparent 52%),
+        rgba(18, 15, 12, 0.7);
+    }
+
+    .case-study-action:hover {
+      border-color: rgba(229, 201, 139, 0.44);
+      background:
+        linear-gradient(145deg, rgba(201, 168, 106, 0.14), transparent 52%),
+        rgba(18, 15, 12, 0.82);
+    }
+
     @media (max-width: 1080px) {
       .project-register-row {
         gap: 18px;
@@ -501,6 +748,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       .project-register-tab {
         min-width: 166px;
+      }
+
+      .featured-case {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-case-visual {
+        border-left: none;
+        border-top: 1px solid rgba(201, 168, 106, 0.16);
       }
     }
 
@@ -511,6 +767,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       .premium-preview-label strong {
         font-size: clamp(1.9rem, 7vw, 3rem);
+      }
+
+      .featured-case-meta {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -592,6 +852,46 @@ document.addEventListener("DOMContentLoaded", () => {
       .premium-preview-label {
         padding: 22px;
       }
+
+      .featured-case-section {
+        width: min(100% - 28px, var(--max-width));
+        margin-top: 24px;
+      }
+
+      .featured-case {
+        min-height: auto;
+        border-radius: 28px;
+      }
+
+      .featured-case-copy {
+        padding: 26px;
+      }
+
+      .featured-case h2 {
+        font-size: clamp(3rem, 14vw, 4.8rem);
+      }
+
+      .featured-case-visual,
+      .featured-case-visual img {
+        min-height: 330px;
+      }
+
+      .featured-case-mini {
+        left: 18px;
+        top: 18px;
+        right: 18px;
+        max-width: none;
+      }
+
+      .featured-case-visual::after {
+        right: 18px;
+        bottom: 18px;
+      }
+
+      .featured-case-actions .btn,
+      .project-actions .btn {
+        width: 100%;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -599,7 +899,8 @@ document.addEventListener("DOMContentLoaded", () => {
       .premium-scroll-top,
       .premium-reveal,
       .project-register-tab::before,
-      .premium-status-dot {
+      .premium-status-dot,
+      .featured-case-kicker::before {
         animation: none !important;
         transition: none !important;
       }
@@ -719,6 +1020,105 @@ document.addEventListener("DOMContentLoaded", () => {
 
   insertProcessLine();
 
+  const getKuechenkumpelCaseHref = () => {
+    if (currentPath.includes("/cd-christoph-it/projekte/kuechenkumpel")) {
+      return "./";
+    }
+
+    if (
+      currentPath.includes("/cd-christoph-it/projekte/demos") ||
+      currentPath.includes("/cd-christoph-it/projekte/lernprojekte") ||
+      currentPath.includes("/cd-christoph-it/projekte/konzepte") ||
+      currentPath.includes("/cd-christoph-it/projekte/einblicke") ||
+      currentPath.includes("/cd-christoph-it/projekte/website")
+    ) {
+      return "../kuechenkumpel/";
+    }
+
+    return "kuechenkumpel/";
+  };
+
+  const insertFeaturedCase = () => {
+    if (!isProjectOverview) return;
+    if (document.querySelector(".featured-case-section")) return;
+
+    const registerSection = document.querySelector(".project-register-wrap")?.closest("section");
+
+    if (!registerSection) return;
+
+    const featuredSection = document.createElement("section");
+    featuredSection.className = "featured-case-section premium-reveal";
+    featuredSection.innerHTML = `
+      <article class="featured-case">
+        <div class="featured-case-copy">
+          <span class="featured-case-kicker">Featured Case · Küchenkumpel</span>
+
+          <h2>
+            Aus Idee wird
+            <span>echter Test.</span>
+          </h2>
+
+          <p>
+            Küchenkumpel ist aktuell mein lebendigstes Projekt: eine kleine App rund um Küche,
+            Rezepte, Alltag und einen freundlichen digitalen Begleiter.
+          </p>
+
+          <p>
+            Die Anwendung wird von einer kleinen Gruppe getestet. Fehler, Wünsche und
+            Verbesserungsideen werden gesammelt und fließen Schritt für Schritt in die
+            Weiterentwicklung ein.
+          </p>
+
+          <div class="featured-case-meta">
+            <div>
+              <span>Testgruppe</span>
+              <strong>7 Personen</strong>
+            </div>
+
+            <div>
+              <span>Feedback</span>
+              <strong>WhatsApp-Gruppe</strong>
+            </div>
+
+            <div>
+              <span>Status</span>
+              <strong>laufende Testphase</strong>
+            </div>
+          </div>
+
+          <div class="featured-case-actions">
+            <a
+              class="btn btn-primary"
+              href="https://christophdietrich19-dot.github.io/Kuechenkumpel/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Demo öffnen
+            </a>
+
+            <a class="btn btn-secondary case-study-action" href="${getKuechenkumpelCaseHref()}">
+              Case Study ansehen
+            </a>
+          </div>
+        </div>
+
+        <div class="featured-case-visual">
+          <img src="../assets/project-kuechenkumpel.png" alt="Screenshot der Küchenkumpel-App" />
+
+          <div class="featured-case-mini">
+            <small>Live im Aufbau</small>
+            <strong>Küchenkumpel</strong>
+            <span>Feedback sammeln, Fehler finden und die App aus Nutzersicht verbessern.</span>
+          </div>
+        </div>
+      </article>
+    `;
+
+    registerSection.insertAdjacentElement("afterend", featuredSection);
+  };
+
+  insertFeaturedCase();
+
   const addPremiumProjectPreviewLabels = () => {
     if (!isProjectOverview) return;
 
@@ -749,6 +1149,32 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   addPremiumProjectPreviewLabels();
+
+  const addKuechenkumpelCaseButtons = () => {
+    if (!isInsideProjectArea) return;
+
+    const cards = document.querySelectorAll(".project-card");
+
+    cards.forEach((card) => {
+      const title = card.querySelector("h3")?.textContent.trim().toLowerCase();
+
+      if (title !== "küchenkumpel") return;
+
+      const actions = card.querySelector(".project-actions");
+
+      if (!actions) return;
+      if (actions.querySelector(".case-study-action")) return;
+
+      const caseLink = document.createElement("a");
+      caseLink.className = "btn btn-secondary project-action-btn case-study-action";
+      caseLink.href = getKuechenkumpelCaseHref();
+      caseLink.textContent = "Case Study ansehen";
+
+      actions.appendChild(caseLink);
+    });
+  };
+
+  addKuechenkumpelCaseButtons();
 
   const updateScrollEffects = () => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -830,6 +1256,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ".project-mood-image",
     ".section-heading",
     ".premium-process-section",
+    ".featured-case-section",
   ];
 
   const revealElements = document.querySelectorAll(revealSelectors.join(", "));
