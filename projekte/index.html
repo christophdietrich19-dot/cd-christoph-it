@@ -8,11 +8,12 @@
 
   <meta
     name="description"
-    content="Projektübersicht von Christoph Dietrich. Kleine Webprojekte, digitale Werkzeuge, Demos und praktische Anwendungen mit HTML, CSS, JavaScript, GitHub Pages und Netlify."
+    content="Projektregister von Christoph Dietrich mit Website, Demos, Lernprojekten, Konzepten und geschützten Einblicken."
   />
 
   <link rel="icon" type="image/png" href="../assets/favicon.png" />
   <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="project-tabs.css" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -61,59 +62,105 @@
   <main>
     <section class="section page-hero">
       <div>
-        <p class="signature">Projekte · Demos · digitale Werkzeuge</p>
+        <p class="signature">Projektregister · Karteikarten-System</p>
 
         <h1>
-          Gebaute Ideen
-          <span>sichtbar gemacht.</span>
+          Projekte nach Themen
+          <span>sauber geordnet.</span>
         </h1>
 
         <p class="page-hero-text">
-          Hier sammle ich kleine Webprojekte, Lernanwendungen und digitale Werkzeuge,
-          die aus konkreten Ideen, echten Abläufen und praktischen Problemen entstanden sind.
+          Statt einer einzigen langen Seite gibt es hier jetzt ein kleines Register:
+          mit separaten Bereichen für Website, Demos, Lernprojekte, Konzepte und
+          geschützte Einblicke.
         </p>
 
         <p class="page-hero-text">
-          Nicht jedes Projekt ist fertig. Aber jedes Projekt zeigt einen Schritt:
-          verstehen, ordnen, umsetzen, testen und verbessern.
+          So lässt sich schneller erkennen, was bereits öffentlich testbar ist,
+          was sich noch in Entwicklung befindet und welche Projekte eher Einblicke
+          in Struktur und Arbeitsweise geben.
         </p>
       </div>
 
       <aside class="page-panel">
         <div class="page-icon">▦</div>
-        <p class="panel-label">Projektfokus</p>
+        <p class="panel-label">Projektfächer</p>
 
         <div class="panel-list">
           <div>
-            <span>Grundlagen</span>
-            <strong>HTML, CSS, JavaScript und responsive Layouts</strong>
+            <span>Öffentlich</span>
+            <strong>Website, Demos und laufende Lernprojekte</strong>
           </div>
 
           <div>
-            <span>Umsetzung</span>
-            <strong>kleine Anwendungen, Listen, Demos und Prototypen</strong>
+            <span>Struktur</span>
+            <strong>Konzepte mit stärkerem Praxis- und Alltagsbezug</strong>
           </div>
 
           <div>
-            <span>Veröffentlichung</span>
-            <strong>GitHub Pages, Netlify und saubere Projektstruktur</strong>
+            <span>Einblicke</span>
+            <strong>nicht öffentlich verlinkte Anwendungen und Screenshots</strong>
           </div>
         </div>
       </aside>
     </section>
 
-    <section class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Auswahl</p>
-        <h2>Projekte mit echtem Aufbau.</h2>
-        <p>
-          Die Screenshots zeigen echte Zwischenstände und Anwendungen. Einige Projekte
-          sind öffentlich als Demo erreichbar, andere bleiben bewusst nur als geschützte
-          Ansicht oder Konzept sichtbar.
+    <section class="section project-section-compact">
+      <div class="project-register-wrap">
+        <div class="project-register-row">
+          <a href="./" class="project-register-tab active">
+            <span class="project-register-letter">A</span>
+            <small>Register</small>
+            <strong>Alle Projekte</strong>
+          </a>
+
+          <a href="website/" class="project-register-tab">
+            <span class="project-register-letter">W</span>
+            <small>Register</small>
+            <strong>Website</strong>
+          </a>
+
+          <a href="demos/" class="project-register-tab">
+            <span class="project-register-letter">D</span>
+            <small>Register</small>
+            <strong>Demos</strong>
+          </a>
+
+          <a href="lernprojekte/" class="project-register-tab">
+            <span class="project-register-letter">L</span>
+            <small>Register</small>
+            <strong>Lernprojekte</strong>
+          </a>
+
+          <a href="konzepte/" class="project-register-tab">
+            <span class="project-register-letter">K</span>
+            <small>Register</small>
+            <strong>Konzepte</strong>
+          </a>
+
+          <a href="einblicke/" class="project-register-tab">
+            <span class="project-register-letter">E</span>
+            <small>Register</small>
+            <strong>Einblicke</strong>
+          </a>
+        </div>
+
+        <p class="project-register-note">
+          Die Registerkarten öffnen jeweils eine eigene Unterseite. So bleibt die
+          Übersicht ruhiger und jedes Thema bekommt seinen eigenen Platz.
         </p>
       </div>
 
-      <div class="projects-grid project-page-grid">
+      <div class="section-heading project-overview-intro">
+        <p class="eyebrow">Übersicht</p>
+        <h2>Alle aktuellen Projekte auf einen Blick.</h2>
+        <p>
+          Von der persönlichen Website über kleine Demos bis hin zu größeren Konzepten:
+          hier steht alles zusammen, bevor du in die einzelnen Projektfächer wechselst.
+        </p>
+      </div>
+
+      <div class="projects-grid project-page-grid project-grid-spacing">
         <article class="project-card project-page-card">
           <div class="project-preview">
             <img src="../assets/project-website.png" alt="Screenshot der persönlichen Website von Christoph Dietrich" />
@@ -125,6 +172,7 @@
           </div>
 
           <h3>Persönliche Website</h3>
+          <p class="project-category-line"><strong>Kategorie:</strong> Website · Lernprojekt</p>
 
           <p>
             Diese Website dient als digitale Anlaufstelle für Projekte, beruflichen
@@ -166,6 +214,7 @@
           </div>
 
           <h3>Einkaufszettel</h3>
+          <p class="project-category-line"><strong>Kategorie:</strong> Demos · Lernprojekte</p>
 
           <p>
             Eine kleine Anwendung, um Einkäufe übersichtlich zu sammeln, zu verwalten
@@ -195,20 +244,7 @@
             </a>
           </div>
         </article>
-      </div>
-    </section>
 
-    <section class="project-mood-section">
-      <div class="project-mood-image">
-        <img
-          src="../assets/project-mood-process.png"
-          alt="Stimmungsbild mit Notizbuch, Planung und dem Satz Verstehen, Ordnen, Umsetzen"
-        />
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="projects-grid project-page-grid">
         <article class="project-card project-page-card">
           <div class="project-preview">
             <img src="../assets/project-trinkbuddy.png" alt="Screenshot der Trinkbuddy-App" />
@@ -220,6 +256,7 @@
           </div>
 
           <h3>Trinkbuddy</h3>
+          <p class="project-category-line"><strong>Kategorie:</strong> Demos · Lernprojekte</p>
 
           <p>
             Eine persönliche kleine App zum Erinnern, Dokumentieren und spielerischen
@@ -261,6 +298,7 @@
           </div>
 
           <h3>Snake</h3>
+          <p class="project-category-line"><strong>Kategorie:</strong> Demos · Lernprojekte</p>
 
           <p>
             Ein kleines Retro-Spiel mit unterschiedlichen Geschwindigkeiten,
@@ -290,32 +328,67 @@
             </a>
           </div>
         </article>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Geschützte Einblicke</p>
-        <h2>Projekte mit stärkerem Praxisbezug.</h2>
-        <p>
-          Manche Projekte sind nicht öffentlich verlinkt, weil sie vertrauliche Abläufe,
-          interne Ideen oder spätere Nutzungskonzepte berühren. Deshalb zeige ich hier
-          nur ausgewählte Screenshots und Beschreibungen.
-        </p>
-      </div>
+        <article class="project-card project-page-card">
+          <div class="project-preview">
+            <img src="../assets/project-kuechenkumpel.png" alt="Screenshot der Küchenkumpel-App" />
+          </div>
 
-      <div class="projects-grid project-page-grid">
+          <div class="project-head">
+            <span class="project-index">05</span>
+            <span class="project-state">Testphase</span>
+          </div>
+
+          <h3>Küchenkumpel</h3>
+          <p class="project-category-line"><strong>Kategorie:</strong> Demos · Lernprojekte · Konzepte</p>
+
+          <p>
+            Eine eigene App-Idee rund um Küche, Rezepte, Alltag und einen sympathischen
+            digitalen Begleiter. Aktuell wird die Anwendung in einer kleinen Gruppe getestet.
+            Fehler, Wünsche und Verbesserungsideen werden gesammelt und nach und nach eingearbeitet.
+          </p>
+
+          <p>
+            Dabei lerne ich nicht nur, Funktionen zu bauen, sondern auch mit echtem Feedback
+            umzugehen und eine App aus Sicht der Nutzer weiterzuentwickeln.
+          </p>
+
+          <div class="project-data">
+            <div>
+              <span>Fokus</span>
+              <strong>Rezepte, Alltag, Nutzerführung</strong>
+            </div>
+
+            <div>
+              <span>Technik</span>
+              <strong>HTML, CSS, JavaScript</strong>
+            </div>
+          </div>
+
+          <div class="project-actions">
+            <a
+              class="btn btn-primary project-action-btn"
+              href="https://christophdietrich19-dot.github.io/Kuechenkumpel/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Demo öffnen
+            </a>
+          </div>
+        </article>
+
         <article class="project-card project-page-card">
           <div class="project-preview">
             <img src="../assets/project-serviceportal.png" alt="Screenshot des Serviceportals" />
           </div>
 
           <div class="project-head">
-            <span class="project-index">05</span>
-            <span class="project-state">geschützt</span>
+            <span class="project-index">06</span>
+            <span class="project-state">Einblick</span>
           </div>
 
           <h3>Serviceportal</h3>
+          <p class="project-category-line"><strong>Kategorie:</strong> Konzepte · Einblicke</p>
 
           <p>
             Ein strukturiertes Serviceportal für Kundenfälle, Erinnerungen,
@@ -346,11 +419,12 @@
           </div>
 
           <div class="project-head">
-            <span class="project-index">06</span>
-            <span class="project-state">Konzept / geschützt</span>
+            <span class="project-index">07</span>
+            <span class="project-state">Einblick</span>
           </div>
 
           <h3>KlarHaus</h3>
+          <p class="project-category-line"><strong>Kategorie:</strong> Konzepte · Einblicke</p>
 
           <p>
             Ein Konzept für die strukturierte Verwaltung von Eigentumswohnungen,
@@ -377,23 +451,31 @@
       </div>
     </section>
 
+    <section class="project-mood-section">
+      <div class="project-mood-image">
+        <img
+          src="../assets/project-mood-process.png"
+          alt="Stimmungsbild mit Notizbuch, Planung und dem Satz Verstehen, Ordnen, Umsetzen"
+        />
+      </div>
+    </section>
+
     <section class="section">
       <div class="cta-card">
-        <p class="eyebrow">Weiterentwicklung</p>
+        <p class="eyebrow">Weiter ins Register</p>
 
-        <h2>Kleine Projekte. Echter Lerneffekt.</h2>
-
-        <p>
-          Jedes Projekt hilft mir dabei, Struktur, Gestaltung, Funktionen und
-          technische Zusammenhänge besser zu verstehen.
-        </p>
+        <h2>Ein Thema auswählen und gezielt weiterschauen.</h2>
 
         <p>
-          Besonders spannend wird es dort, wo aus einer einfachen Idee ein Werkzeug
-          entsteht, das im Alltag tatsächlich Ordnung schafft.
+          Wenn du nur bestimmte Bereiche sehen möchtest, kannst du direkt in die
+          passenden Register wechseln — etwa zu den Demos, den Konzepten oder den
+          geschützten Einblicken.
         </p>
 
-        <a href="../kontakt/" class="btn btn-primary">Kontakt aufnehmen</a>
+        <div class="hero-actions">
+          <a href="demos/" class="btn btn-primary">Zu den Demos</a>
+          <a href="konzepte/" class="btn btn-secondary">Zu den Konzepten</a>
+        </div>
       </div>
     </section>
   </main>
