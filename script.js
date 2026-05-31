@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentPath = window.location.pathname;
 
   const isProjectOverview =
-    currentPath.endsWith("/cd-christoph-it/projekte/") ||
-    currentPath.endsWith("/cd-christoph-it/projekte/index.html");
+    currentPath === "/projekte/" ||
+    currentPath === "/projekte/index.html";
 
-  const isInsideProjectArea = currentPath.includes("/cd-christoph-it/projekte");
+  const isInsideProjectArea = currentPath.includes("/projekte");
 
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
@@ -388,7 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     .featured-case-visual::after {
-      content: "TESTPHASE";
+      content: "PRIVATE TESTPHASE";
       position: absolute;
       right: 26px;
       bottom: 26px;
@@ -493,7 +493,8 @@ document.addEventListener("DOMContentLoaded", () => {
       box-shadow: 0 0 14px rgba(229, 201, 139, 0.34);
     }
 
-    .project-state.status-testphase .premium-status-dot {
+    .project-state.status-testphase .premium-status-dot,
+    .project-state.status-private-testphase .premium-status-dot {
       background: rgba(79, 143, 184, 0.98);
       box-shadow: 0 0 16px rgba(79, 143, 184, 0.5);
       animation: premiumPulse 2.2s ease-in-out infinite;
@@ -939,15 +940,10 @@ document.addEventListener("DOMContentLoaded", () => {
       link.classList.remove("nav-active");
 
       if (
-        (linkText === "start" &&
-          (currentPath.endsWith("/cd-christoph-it/") ||
-            currentPath.endsWith("/cd-christoph-it/index.html"))) ||
-        (linkText === "projekte" &&
-          currentPath.includes("/cd-christoph-it/projekte")) ||
-        (linkText === "über mich" &&
-          currentPath.includes("/cd-christoph-it/ueber-mich")) ||
-        (linkText === "kontakt" &&
-          currentPath.includes("/cd-christoph-it/kontakt"))
+        (linkText === "start" && (currentPath === "/" || currentPath === "/index.html")) ||
+        (linkText === "projekte" && currentPath.includes("/projekte")) ||
+        (linkText === "über mich" && currentPath.includes("/ueber-mich")) ||
+        (linkText === "kontakt" && currentPath.includes("/kontakt"))
       ) {
         link.classList.add("nav-active");
       }
@@ -960,11 +956,82 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateActiveNavigation();
 
+  const normalizeKuechenkumpelText = () => {
+    const projectCards = document.querySelectorAll(".project-card");
+
+    projectCards.forEach((card) => {
+      const title = card.querySelector("h3")?.textContent.trim().toLowerCase();
+
+      if (title !== "küchenkumpel") return;
+
+      const state = card.querySelector(".project-state");
+
+      if (state) {
+        state.childNodes.forEach((node) => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            node.textContent = "private Testphase";
+          }
+        });
+
+        if (!state.textContent.toLowerCase().includes("private")) {
+          state.append("private Testphase");
+        }
+      }
+
+      card.querySelectorAll("p, strong, span").forEach((element) => {
+        element.childNodes.forEach((node) => {
+          if (node.nodeType !== Node.TEXT_NODE) return;
+
+          node.textContent = node.textContent
+            .replaceAll("Testphase mit Rückmeldungen", "private Testphase mit Rückmeldungen")
+            .replaceAll("Testphase mit Feedback", "private Testphase mit Feedback")
+            .replaceAll("Testphase", "private Testphase")
+            .replaceAll("private private Testphase", "private Testphase")
+            .replaceAll("Die Anwendung wird bereits getestet", "Die Anwendung wird bereits in einer kleinen privaten Testgruppe getestet")
+            .replaceAll("Die Anwendung wird aktuell von einer kleinen Gruppe getestet", "Die Anwendung wird aktuell in einer kleinen privaten Testgruppe getestet")
+            .replaceAll("Aktuell wird die Anwendung in einer kleinen Gruppe getestet", "Aktuell wird die Anwendung in einer kleinen privaten Testgruppe getestet")
+            .replaceAll("eine kleine Gruppe nutzt die App", "eine kleine private Testgruppe nutzt die App");
+        });
+      });
+    });
+  };
+
+  const normalizeCaseStudyPageText = () => {
+    if (!currentPath.includes("/projekte/kuechenkumpel")) return;
+
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+
+      if (!node.nodeValue.trim()) continue;
+
+      textNodes.push(node);
+    }
+
+    textNodes.forEach((node) => {
+      node.nodeValue = node.nodeValue
+        .replaceAll("Testphase mit Rückmeldungen", "private Testphase mit Rückmeldungen")
+        .replaceAll("Testphase mit Feedback", "private Testphase mit Feedback")
+        .replaceAll("laufende Testphase", "laufende private Testphase")
+        .replaceAll("Status: Testphase", "Status: private Testphase")
+        .replaceAll("Testphase", "private Testphase")
+        .replaceAll("private private Testphase", "private Testphase")
+        .replaceAll("eine kleine Gruppe getestet", "eine kleine private Testgruppe getestet")
+        .replaceAll("Eine kleine Gruppe nutzt die App", "Eine kleine private Testgruppe nutzt die App")
+        .replaceAll("eine kleine Gruppe nutzt die App", "eine kleine private Testgruppe nutzt die App");
+    });
+  };
+
+  normalizeKuechenkumpelText();
+  normalizeCaseStudyPageText();
+
   const shouldInsertProcessLine = () => {
     return (
-      currentPath.endsWith("/cd-christoph-it/") ||
-      currentPath.endsWith("/cd-christoph-it/index.html") ||
-      currentPath.includes("/cd-christoph-it/projekte")
+      currentPath === "/" ||
+      currentPath === "/index.html" ||
+      currentPath.includes("/projekte")
     );
   };
 
@@ -1021,16 +1088,16 @@ document.addEventListener("DOMContentLoaded", () => {
   insertProcessLine();
 
   const getKuechenkumpelCaseHref = () => {
-    if (currentPath.includes("/cd-christoph-it/projekte/kuechenkumpel")) {
+    if (currentPath.includes("/projekte/kuechenkumpel")) {
       return "./";
     }
 
     if (
-      currentPath.includes("/cd-christoph-it/projekte/demos") ||
-      currentPath.includes("/cd-christoph-it/projekte/lernprojekte") ||
-      currentPath.includes("/cd-christoph-it/projekte/konzepte") ||
-      currentPath.includes("/cd-christoph-it/projekte/einblicke") ||
-      currentPath.includes("/cd-christoph-it/projekte/website")
+      currentPath.includes("/projekte/demos") ||
+      currentPath.includes("/projekte/lernprojekte") ||
+      currentPath.includes("/projekte/konzepte") ||
+      currentPath.includes("/projekte/einblicke") ||
+      currentPath.includes("/projekte/website")
     ) {
       return "../kuechenkumpel/";
     }
@@ -1064,8 +1131,8 @@ document.addEventListener("DOMContentLoaded", () => {
           </p>
 
           <p>
-            Die Anwendung wird von einer kleinen Gruppe getestet. Fehler, Wünsche und
-            Verbesserungsideen werden gesammelt und fließen Schritt für Schritt in die
+            Die Anwendung wird in einer kleinen privaten Testgruppe ausprobiert. Fehler, Wünsche
+            und Verbesserungsideen werden gesammelt und fließen Schritt für Schritt in die
             Weiterentwicklung ein.
           </p>
 
@@ -1082,7 +1149,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <div>
               <span>Status</span>
-              <strong>laufende Testphase</strong>
+              <strong>laufende private Testphase</strong>
             </div>
           </div>
 
@@ -1233,8 +1300,8 @@ document.addEventListener("DOMContentLoaded", () => {
       statusElement.prepend(dot);
     }
 
-    if (statusText.includes("test")) {
-      statusElement.classList.add("status-testphase");
+    if (statusText.includes("private test") || statusText.includes("test")) {
+      statusElement.classList.add("status-private-testphase");
     } else if (statusText.includes("demo")) {
       statusElement.classList.add("status-demo");
     } else if (statusText.includes("online")) {
