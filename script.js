@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const siteHeader = document.getElementById("siteHeader");
   const menuToggle = document.getElementById("menuToggle");
@@ -28,13 +27,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const closeMenu = () => {
+    if (!menuToggle || !navLinks) return;
+    navLinks.classList.remove("active");
+    menuToggle.classList.remove("active");
+    menuToggle.setAttribute("aria-expanded", "false");
+  };
+
   if (menuToggle && navLinks) {
+    menuToggle.setAttribute("aria-expanded", "false");
+
     menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
+      const isOpen = navLinks.classList.toggle("active");
+      menuToggle.classList.toggle("active", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
     });
 
     navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => navLinks.classList.remove("active"));
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!navLinks.classList.contains("active")) return;
+      if (navLinks.contains(event.target) || menuToggle.contains(event.target)) return;
+      closeMenu();
     });
   }
 
@@ -52,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
       siteHeader.classList.toggle("scrolled", scrollTop > 10);
     }
 
-    scrollTopButton.classList.toggle("visible", scrollTop > 520);
+    scrollTopButton.classList.toggle("visible", scrollTop > 560);
   };
 
   window.addEventListener("scroll", updateScroll, { passive: true });
@@ -62,7 +82,10 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  const revealElements = document.querySelectorAll(".card, .text-card, .project-card, .page-panel, .cta-card, .career-card, .tech-panel, .section-heading, .process-step, .contact-card, .legal-card");
+  const revealElements = document.querySelectorAll(
+    ".card, .text-card, .project-card, .page-panel, .cta-card, .career-card, .tech-panel, .section-heading, .contact-card, .legal-card"
+  );
+
   revealElements.forEach((element) => element.classList.add("reveal"));
 
   if ("IntersectionObserver" in window) {
@@ -73,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -30px 0px" });
+    }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
 
     revealElements.forEach((element) => observer.observe(element));
   } else {
