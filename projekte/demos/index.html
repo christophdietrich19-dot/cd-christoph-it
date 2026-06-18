@@ -3,331 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Demos | Projekte | Christoph Dietrich</title>
-
-  <meta
-    name="description"
-    content="Projektregister: öffentlich testbare Demos und kleine Web-Anwendungen von Christoph Dietrich."
-  />
-
+  <meta name="description" content="Öffentlich testbare Demos und kleine Web Anwendungen von Christoph Dietrich." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://christoph-it.de/projekte/demos/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Demos | Projekte | Christoph Dietrich" />
+  <meta property="og:description" content="Öffentlich testbare Demos und kleine Web Anwendungen von Christoph Dietrich." />
+  <meta property="og:url" content="https://christoph-it.de/projekte/demos/" />
+  <meta property="og:image" content="https://christoph-it.de/assets/logo-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#f3ecdf" />
   <link rel="icon" type="image/png" href="../../assets/favicon.png" />
   <link rel="stylesheet" href="../../style.css" />
-  <link rel="stylesheet" href="../project-tabs.css" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
-
 <body>
-  <div class="page-background" aria-hidden="true">
-    <div class="grain"></div>
-    <div class="wood-lines"></div>
-    <div class="ambient ambient-gold"></div>
-    <div class="ambient ambient-blue"></div>
-  </div>
-
+  <div class="page-background" aria-hidden="true"><div class="ambient ambient-one"></div><div class="ambient ambient-two"></div></div>
   <header class="site-header" id="siteHeader">
     <nav class="navbar">
       <a href="../../" class="brand" aria-label="Zur Startseite">
-        <span class="brand-logo-shell">
-          <img src="../../assets/logo-icon.png" alt="Christoph Dietrich Logo" class="brand-logo" />
-        </span>
-
-        <span class="brand-text">
-          <strong>Christoph Dietrich</strong>
-          <small>Digitale Lösungen mit Struktur</small>
-        </span>
+        <span class="brand-logo-shell"><img src="../../assets/logo-icon.png" alt="Christoph Dietrich Logo" class="brand-logo" /></span>
+        <span class="brand-text"><strong>Christoph Dietrich</strong><small>Digitale Lösungen mit Struktur</small></span>
       </a>
-
-      <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen" type="button">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
+      <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen" type="button"><span></span><span></span><span></span></button>
       <div class="nav-links" id="navLinks">
         <a href="../../">Start</a>
-        <a href="../../projekte/">Projekte</a>
+        <a href="../">Projekte</a>
         <a href="../../ueber-mich/">Über mich</a>
         <a href="../../kontakt/">Kontakt</a>
       </div>
     </nav>
   </header>
-
   <main>
-    <section class="section page-hero project-subpage-hero">
-      <div>
-        <p class="signature">Projektregister · Demos</p>
-
-        <h1>
-          Öffentlich testbare
-          <span>Demos und Anwendungen.</span>
-        </h1>
-
-        <p class="page-hero-text">
-          Hier stehen Projekte, die bereits direkt ausprobiert werden können:
-          kleine Anwendungen, praktische Helfer und laufende Ideen mit echter Bedienung.
-        </p>
-
-        <p class="page-hero-text">
-          Einige Demos sind bewusst einfache Lernprojekte. Sie zeigen nicht den Anspruch,
-          fertige Produkte zu sein, sondern den aktuellen Stand beim Ausprobieren,
-          Verbessern und Weiterentwickeln.
-        </p>
-      </div>
-
-      <aside class="page-panel">
-        <div class="page-icon">D</div>
-        <p class="panel-label">Demos</p>
-
-        <div class="panel-list">
-          <div>
-            <span>Enthalten</span>
-            <strong>Einkaufszettel, Trinkbuddy, Küchenkumpel</strong>
-          </div>
-
-          <div>
-            <span>Charakter</span>
-            <strong>testbar, praktisch, in Bewegung</strong>
-          </div>
-
-          <div>
-            <span>Ziel</span>
-            <strong>Alltag, Übersicht und Nutzerführung</strong>
-          </div>
-        </div>
-      </aside>
+    <section class="section page-hero">
+      <div><p class="signature">Projektregister · Demos</p><h1>Öffentlich testbare <span>Demos.</span></h1><p class="page-hero-text">Hier stehen Projekte, die bereits direkt ausprobiert werden können. Einige sind einfache Lernprojekte, andere wachsen mit Feedback weiter.</p></div>
+      <aside class="page-panel"><div class="page-icon">▦</div><p class="panel-label">Projektregister</p><div class="panel-list"><div><span>Struktur</span><strong>sauber sortierte Bereiche</strong></div><div><span>Status</span><strong>Demos, Konzepte und Einblicke</strong></div><div><span>Ziel</span><strong>schnell verstehen, worum es geht</strong></div></div></aside>
     </section>
-
-    <section class="section project-section-compact">
-      <div class="project-register-wrap">
-        <div class="project-register-row">
-          <a href="../" class="project-register-tab">
-            <span class="project-register-letter">A</span>
-            <small>Register</small>
-            <strong>Alle Projekte</strong>
-          </a>
-
-          <a href="../website/" class="project-register-tab">
-            <span class="project-register-letter">W</span>
-            <small>Register</small>
-            <strong>Website</strong>
-          </a>
-
-          <a href="./" class="project-register-tab active">
-            <span class="project-register-letter">D</span>
-            <small>Register</small>
-            <strong>Demos</strong>
-          </a>
-
-          <a href="../lernprojekte/" class="project-register-tab">
-            <span class="project-register-letter">L</span>
-            <small>Register</small>
-            <strong>Lernprojekte</strong>
-          </a>
-
-          <a href="../konzepte/" class="project-register-tab">
-            <span class="project-register-letter">K</span>
-            <small>Register</small>
-            <strong>Konzepte</strong>
-          </a>
-
-          <a href="../einblicke/" class="project-register-tab">
-            <span class="project-register-letter">E</span>
-            <small>Register</small>
-            <strong>Einblicke</strong>
-          </a>
-        </div>
-      </div>
-
-      <div class="projects-grid project-page-grid project-grid-spacing">
-        <article class="project-card project-page-card">
-          <div class="project-preview">
-            <img src="../../assets/project-einkaufszettel.png" alt="Screenshot der Einkaufszettel-App" />
-          </div>
-
-          <div class="project-head">
-            <span class="project-index">01</span>
-            <span class="project-state">Demo verfügbar</span>
-          </div>
-
+    <section class="section"><div class="project-register-row">          <a href="../" class="project-register-tab "><span class="project-register-letter">A</span><small>Register</small><strong>Alle Projekte</strong></a>
+          <a href="../website/" class="project-register-tab "><span class="project-register-letter">W</span><small>Register</small><strong>Website</strong></a>
+          <a href="../demos/" class="project-register-tab active"><span class="project-register-letter">D</span><small>Register</small><strong>Demos</strong></a>
+          <a href="../lernprojekte/" class="project-register-tab "><span class="project-register-letter">L</span><small>Register</small><strong>Lernprojekte</strong></a>
+          <a href="../konzepte/" class="project-register-tab "><span class="project-register-letter">K</span><small>Register</small><strong>Konzepte</strong></a>
+          <a href="../einblicke/" class="project-register-tab "><span class="project-register-letter">E</span><small>Register</small><strong>Einblicke</strong></a></div><div class="projects-grid">        <article class="project-card">
+          <div class="project-preview"><img src="../../assets/project-einkaufszettel.png" alt="Screenshot der Einkaufszettel App" /></div>
+          <div class="project-head"><span class="project-index">02</span><span class="project-state">Demo verfügbar</span></div>
           <h3>Einkaufszettel</h3>
           <p class="project-category-line"><strong>Kategorie:</strong> Demos · Lernprojekte</p>
-
-          <p>
-            Eine kleine Anwendung, um Einkäufe übersichtlich zu sammeln, zu verwalten
-            und im Alltag schneller den Überblick zu behalten.
-          </p>
-
-          <p>
-            Das Projekt dient vor allem dazu, Eingaben, Listenlogik, Bedienung und
-            mobile Darstellung praktisch auszuprobieren.
-          </p>
-
+          <p>Eine kleine Anwendung, um Einkäufe übersichtlich zu sammeln, zu verwalten und im Alltag schneller den Überblick zu behalten.</p>
           <div class="project-data">
-            <div>
-              <span>Fokus</span>
-              <strong>Listen, Eingaben, Übersicht</strong>
-            </div>
-
-            <div>
-              <span>Technik</span>
-              <strong>HTML, CSS, JavaScript</strong>
-            </div>
+            <div><span>Fokus</span><strong>Listen, Eingaben, Übersicht</strong></div>
+            <div><span>Technik</span><strong>HTML, CSS, JavaScript</strong></div>
           </div>
-
           <div class="project-actions">
-            <a
-              class="btn btn-primary project-action-btn"
-              href="https://einkaufszettel-projekt.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Demo öffnen
-            </a>
+<a class="btn btn-primary project-action-btn" href="https://einkaufszettel-projekt.netlify.app/" target="_blank" rel="noopener noreferrer">Demo öffnen</a>
           </div>
         </article>
-
-        <article class="project-card project-page-card">
-          <div class="project-preview">
-            <img src="../../assets/project-trinkbuddy.png" alt="Screenshot der Trinkbuddy-App" />
-          </div>
-
-          <div class="project-head">
-            <span class="project-index">02</span>
-            <span class="project-state">Demo verfügbar</span>
-          </div>
-
+        <article class="project-card">
+          <div class="project-preview"><img src="../../assets/project-trinkbuddy.png" alt="Screenshot der Trinkbuddy App" /></div>
+          <div class="project-head"><span class="project-index">03</span><span class="project-state">Demo verfügbar</span></div>
           <h3>Trinkbuddy</h3>
           <p class="project-category-line"><strong>Kategorie:</strong> Demos · Lernprojekte</p>
-
-          <p>
-            Eine persönliche kleine App zum Erinnern, Dokumentieren und spielerischen
-            Begleiten von Trinkzielen und Alltagseinträgen.
-          </p>
-
-          <p>
-            Der Fokus liegt auf einfacher Bedienung, persönlichem Nutzen und einer
-            Oberfläche, die auch auf dem Smartphone verständlich bleiben soll.
-          </p>
-
+          <p>Eine persönliche kleine App zum Erinnern, Dokumentieren und spielerischen Begleiten von Trinkzielen und Alltagseinträgen.</p>
           <div class="project-data">
-            <div>
-              <span>Fokus</span>
-              <strong>Alltag, Erinnerung, Protokoll</strong>
-            </div>
-
-            <div>
-              <span>Technik</span>
-              <strong>HTML, CSS, JavaScript</strong>
-            </div>
+            <div><span>Fokus</span><strong>Alltag, Erinnerung, Protokoll</strong></div>
+            <div><span>Technik</span><strong>HTML, CSS, JavaScript</strong></div>
           </div>
-
           <div class="project-actions">
-            <a
-              class="btn btn-primary project-action-btn"
-              href="https://trinkbuddy.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Demo öffnen
-            </a>
+<a class="btn btn-primary project-action-btn" href="https://trinkbuddy.netlify.app/" target="_blank" rel="noopener noreferrer">Demo öffnen</a>
           </div>
         </article>
-
-        <article class="project-card project-page-card">
-          <div class="project-preview">
-            <img src="../../assets/project-kuechenkumpel.png" alt="Screenshot der Küchenkumpel-App" />
-          </div>
-
-          <div class="project-head">
-            <span class="project-index">03</span>
-            <span class="project-state">private Testphase</span>
-          </div>
-
+        <article class="project-card">
+          <div class="project-preview"><img src="../../assets/project-kuechenkumpel.png" alt="Screenshot der Küchenkumpel App" /></div>
+          <div class="project-head"><span class="project-index">04</span><span class="project-state">Private Testphase</span></div>
           <h3>Küchenkumpel</h3>
           <p class="project-category-line"><strong>Kategorie:</strong> Demos · Lernprojekte · Konzepte</p>
-
-          <p>
-            Eine eigene App-Idee rund um Küche, Rezepte, Alltag und einen sympathischen
-            digitalen Begleiter. Die Anwendung wird aktuell in einer kleinen privaten
-            Testgruppe ausprobiert.
-          </p>
-
-          <p>
-            Fehler, Wünsche und Verbesserungsideen werden gesammelt und nach und nach
-            eingearbeitet. Dadurch geht es nicht nur um Funktionen, sondern auch um
-            Nutzerführung, Tonalität und echtes Feedback.
-          </p>
-
+          <p>Küchenkumpel ist eine eigene App Idee rund um Küche, Rezepte, Alltag und einen sympathischen digitalen Begleiter.</p>
+          <p>Die Anwendung wird aktuell in einer kleinen privaten Testgruppe ausprobiert. Fehler, Wünsche und Verbesserungsideen werden gesammelt und Schritt für Schritt eingearbeitet.</p>
           <div class="project-data">
-            <div>
-              <span>Fokus</span>
-              <strong>Rezepte, Alltag, Nutzerführung</strong>
-            </div>
-
-            <div>
-              <span>Technik</span>
-              <strong>HTML, CSS, JavaScript</strong>
-            </div>
+            <div><span>Fokus</span><strong>Rezepte, Alltag, Nutzerführung</strong></div>
+            <div><span>Technik</span><strong>HTML, CSS, JavaScript</strong></div>
           </div>
-
           <div class="project-actions">
-            <a
-              class="btn btn-primary project-action-btn"
-              href="https://christophdietrich19-dot.github.io/Kuechenkumpel/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Demo öffnen
-            </a>
-
-            <a
-              class="btn btn-secondary project-action-btn case-study-action"
-              href="../kuechenkumpel/"
-            >
-              Case Study ansehen
-            </a>
+<a class="btn btn-primary project-action-btn" href="https://christophdietrich19-dot.github.io/Kuechenkumpel/" target="_blank" rel="noopener noreferrer">Demo öffnen</a>
+            <a class="btn btn-secondary project-action-btn" href="../kuechenkumpel/">Case Study ansehen</a>
           </div>
-        </article>
-      </div>
-    </section>
+        </article></div></section>
   </main>
-
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <strong>Christoph Dietrich</strong>
-        <span>Digitale Lösungen mit Struktur</span>
-      </div>
-
+      <div class="footer-brand"><strong>Christoph Dietrich</strong><span>Digitale Lösungen mit Struktur</span></div>
       <div class="footer-links">
         <a href="../../">Start</a>
-        <a href="../../projekte/">Projekte</a>
+        <a href="../">Projekte</a>
         <a href="../../ueber-mich/">Über mich</a>
         <a href="../../kontakt/">Kontakt</a>
       </div>
-
+      <div class="footer-links footer-secondary-links">
+        <a href="../../privatpersonen/">Privatpersonen</a>
+        <a href="../../unternehmen-gewerbe/">Unternehmen & Organisationen</a>
+        <a href="../../praktikum-beruflicher-kontakt/">Praktikum</a>
+      </div>
       <div class="footer-legal">
         <a href="../../impressum/">Impressum</a>
         <a href="../../datenschutz/">Datenschutz</a>
       </div>
-
-      <p class="footer-copy">
-        © <span id="year"></span> Christoph Dietrich
-      </p>
-
-      <p class="footer-tech">
-        Kontakt: <a href="mailto:kontakt@christoph-it.de">kontakt@christoph-it.de</a>
-      </p>
+      <p class="footer-tech">Kontakt: <a href="mailto:kontakt@christoph-it.de">kontakt@christoph-it.de</a></p>
+      <p class="footer-copy">© <span id="year">2026</span> Christoph Dietrich</p>
+      <p class="footer-tech">Aufgebaut mit HTML, CSS und JavaScript.</p>
     </div>
   </footer>
-
   <script src="../../script.js"></script>
 </body>
 </html>

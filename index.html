@@ -3,52 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Christoph Dietrich | Digitale Lösungen mit Struktur</title>
-
-  <meta
-    name="description"
-    content="Christoph Dietrich. Digitale Lösungen mit Struktur, kleine Webprojekte, praktische Anwendungen, IT-Einstieg, Systemintegration und beruflicher Kontakt."
-  />
-
+  <meta name="description" content="Persönliches Portfolio von Christoph Dietrich mit Webprojekten, digitalen Konzepten, beruflichem Austausch und praktischen Lernfeldern in Richtung IT." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://christoph-it.de/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Christoph Dietrich | Digitale Lösungen mit Struktur" />
+  <meta property="og:description" content="Persönliches Portfolio von Christoph Dietrich mit Webprojekten, digitalen Konzepten, beruflichem Austausch und praktischen Lernfeldern in Richtung IT." />
+  <meta property="og:url" content="https://christoph-it.de/" />
+  <meta property="og:image" content="https://christoph-it.de/assets/logo-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#f3ecdf" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="stylesheet" href="style.css" />
-
+  <link rel="stylesheet" href="./style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
-
 <body>
-  <div class="page-background" aria-hidden="true">
-    <div class="grain"></div>
-    <div class="wood-lines"></div>
-    <div class="ambient ambient-gold"></div>
-    <div class="ambient ambient-blue"></div>
-  </div>
-
+  <div class="page-background" aria-hidden="true"><div class="ambient ambient-one"></div><div class="ambient ambient-two"></div></div>
   <header class="site-header" id="siteHeader">
     <nav class="navbar">
       <a href="./" class="brand" aria-label="Zur Startseite">
-        <span class="brand-logo-shell">
-          <img src="assets/logo-icon.png" alt="Christoph Dietrich Logo" class="brand-logo" />
-        </span>
-
-        <span class="brand-text">
-          <strong>Christoph Dietrich</strong>
-          <small>Digitale Lösungen mit Struktur</small>
-        </span>
+        <span class="brand-logo-shell"><img src="assets/logo-icon.png" alt="Christoph Dietrich Logo" class="brand-logo" /></span>
+        <span class="brand-text"><strong>Christoph Dietrich</strong><small>Digitale Lösungen mit Struktur</small></span>
       </a>
-
-      <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen" type="button">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
+      <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen" type="button"><span></span><span></span><span></span></button>
       <div class="nav-links" id="navLinks">
         <a href="./">Start</a>
         <a href="projekte/">Projekte</a>
@@ -57,311 +37,195 @@
       </div>
     </nav>
   </header>
-
   <main>
-    <section class="entrance section">
-      <div class="entrance-copy">
-        <div class="hero-seal">
-          <img src="assets/logo-icon.png" alt="Christoph Dietrich Logo" />
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="signature">Christoph Dietrich · Lausitz / Sachsen</p>
+        <h1>Digitale Lösungen <span>mit Struktur.</span></h1>
+        <p class="hero-text">Ich arbeite an kleinen Webseiten, digitalen Werkzeugen und Konzepten, die Ordnung schaffen und im Alltag wirklich helfen sollen. Dabei geht es mir nicht nur darum, dass etwas funktioniert, sondern dass es verständlich bleibt.</p>
+        <div class="hero-actions">
+          <a href="projekte/" class="btn btn-primary">Projekte ansehen</a>
+          <a href="kontakt/" class="btn btn-secondary">Kontakt aufnehmen</a>
         </div>
-
-        <p class="signature">Executive Tech · ruhig · strukturiert · praxisnah</p>
-
-        <h1>
-          Digitale Lösungen
-          <span>mit Struktur.</span>
-        </h1>
-
-        <p class="entrance-text">
-          Ob private Idee, gewerblicher Ablauf oder beruflicher Kontakt:
-          Diese Seite führt dich direkt zu dem Bereich, der zu deinem Anliegen passt.
-        </p>
-
-        <p class="entrance-subtext">
-          Im Mittelpunkt stehen kleine Webprojekte, klare Abläufe, praktische digitale
-          Werkzeuge und der Weg in Richtung IT, Systemintegration und sinnvolle Technik.
-        </p>
       </div>
+      <aside class="hero-panel">
+        <div class="hero-seal" aria-hidden="true"><img src="assets/logo-icon.png" alt="" /></div>
+        <div class="hero-panel-content">
+          <strong>Struktur, die man merkt.</strong>
+          <p>Von ersten Ideen bis zu sichtbaren Projekten. Ruhig, nachvollziehbar und mit Blick auf echte Nutzung.</p>
+          <div class="panel-metrics">
+            <div><span>Schwerpunkt</span><b>Webseiten, Werkzeuge und Konzepte</b></div>
+            <div><span>Arbeitsweise</span><b>verstehen, ordnen, umsetzen</b></div>
+            <div><span>Richtung</span><b>IT, Systemintegration und digitale Abläufe</b></div>
+          </div>
+        </div>
+      </aside>
+    </section>
 
-      <div class="choice-grid">
-        <a href="privatpersonen/" class="choice-card choice-card-one">
-          <div class="choice-icon">⌂</div>
-
-          <p class="choice-kicker">Bereich 01</p>
-
-          <h2>Privatpersonen</h2>
-
-          <p>
-            Für persönliche Ideen, kleine Webseiten und digitale Helfer, die den Alltag
-            übersichtlicher machen.
-          </p>
-
-          <span>Zum Bereich</span>
-        </a>
-
-        <a href="unternehmen-gewerbe/" class="choice-card choice-card-two">
-          <div class="choice-icon">▦</div>
-
-          <p class="choice-kicker">Bereich 02</p>
-
-          <h2>Unternehmen & Gewerbe</h2>
-
-          <p>
-            Für klare Abläufe, bessere Übersicht und digitale Werkzeuge, die im
-            Arbeitsalltag helfen.
-          </p>
-
-          <span>Zum Bereich</span>
-        </a>
-
-        <a href="praktikum-beruflicher-kontakt/" class="choice-card choice-card-three">
-          <div class="choice-icon">⌖</div>
-
-          <p class="choice-kicker">Bereich 03</p>
-
-          <h2>Praktikum & beruflicher Kontakt</h2>
-
-          <p>
-            Für Kontakte rund um Praktikum, IT-Einstieg und digitale Abläufe im echten
-            Arbeitsumfeld.
-          </p>
-
-          <span>Zum Bereich</span>
-        </a>
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Einstiege</p>
+        <h2>Für Menschen, Abläufe und berufliche Einblicke.</h2>
+        <p>Die Seite ist als Portfolio gedacht und zeigt, woran ich arbeite, welche Richtung mich interessiert und wo digitale Struktur im Alltag helfen kann.</p>
+      </div>
+      <div class="card-grid">
+        <article class="card"><div class="card-icon">01</div><h3>Für Privatpersonen</h3><p>Kleine digitale Ideen, einfache Web Anwendungen und praktische Helfer für Alltag, Übersicht und persönliche Abläufe.</p><a class="card-link" href="privatpersonen/">Mehr ansehen</a></article>
+        <article class="card"><div class="card-icon">02</div><h3>Für Unternehmen & Organisationen</h3><p>Digitale Struktur für Abläufe, Serviceprozesse und interne Übersicht. Vom kleinen Betrieb bis zur größeren Organisation.</p><a class="card-link" href="unternehmen-gewerbe/">Mehr ansehen</a></article>
+        <article class="card"><div class="card-icon">03</div><h3>Praktikum & beruflicher Kontakt</h3><p>Austausch zu IT, Systemintegration, Supportprozessen und praktischen Einblicken in echte technische Abläufe.</p><a class="card-link" href="praktikum-beruflicher-kontakt/">Mehr ansehen</a></article>
       </div>
     </section>
 
     <section class="section">
       <div class="section-heading">
-        <p class="eyebrow">Projekt des Moments</p>
-        <h2>Küchenkumpel wächst gerade im echten Test.</h2>
-        <p>
-          Ein laufendes Projekt ist aktuell besonders spannend: eine kleine App-Idee rund
-          um Küche, Rezepte, Alltag und einen freundlichen digitalen Begleiter.
-        </p>
+        <p class="eyebrow">Ausgewählte Projekte</p>
+        <h2>Vier Projekte, die meine Richtung gut zeigen.</h2>
+        <p>Küchenkumpel ist aktiv in privater Testphase. Blechroute zeigt den nächsten größeren Schritt. Serviceportal und KlarHaus zeigen Strukturdenken für echte Abläufe.</p>
       </div>
-
-      <div class="content-grid">
-        <article class="project-card project-page-card">
-          <div class="project-preview">
-            <img src="assets/project-kuechenkumpel.png" alt="Screenshot der Küchenkumpel-App" />
-          </div>
-
-          <div class="project-head">
-            <span class="project-index">Aktuell</span>
-            <span class="project-state">Testphase</span>
-          </div>
-
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-preview"><img src="assets/project-kuechenkumpel.png" alt="Screenshot der Küchenkumpel App" /></div>
+          <div class="project-head"><span class="project-index">04</span><span class="project-state">Private Testphase</span></div>
           <h3>Küchenkumpel</h3>
-
-          <p>
-            Küchenkumpel wird aktuell von einer kleinen Gruppe getestet. Fehler,
-            Wünsche und Verbesserungsideen werden gesammelt und nach und nach eingearbeitet.
-          </p>
-
-          <p>
-            Dadurch geht es nicht nur um Funktionen, sondern auch um echte Nutzung:
-            Wie fühlt sich die App an? Was ist verständlich? Was hilft im Alltag wirklich?
-          </p>
-
+          <p class="project-category-line"><strong>Kategorie:</strong> Demos · Lernprojekte · Konzepte</p>
+          <p>Küchenkumpel ist eine eigene App Idee rund um Küche, Rezepte, Alltag und einen sympathischen digitalen Begleiter.</p>
+          <p>Die Anwendung wird aktuell in einer kleinen privaten Testgruppe ausprobiert. Fehler, Wünsche und Verbesserungsideen werden gesammelt und Schritt für Schritt eingearbeitet.</p>
           <div class="project-data">
-            <div>
-              <span>Fokus</span>
-              <strong>Rezepte, Alltag, Nutzerführung</strong>
-            </div>
-
-            <div>
-              <span>Status</span>
-              <strong>Testphase mit Feedback</strong>
-            </div>
+            <div><span>Fokus</span><strong>Rezepte, Alltag, Nutzerführung</strong></div>
+            <div><span>Technik</span><strong>HTML, CSS, JavaScript</strong></div>
           </div>
-
           <div class="project-actions">
-            <a
-              class="btn btn-primary project-action-btn"
-              href="https://christophdietrich19-dot.github.io/Kuechenkumpel/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Demo öffnen
-            </a>
-
-            <a
-              class="btn btn-secondary project-action-btn"
-              href="projekte/konzepte/"
-            >
-              Im Register ansehen
-            </a>
+<a class="btn btn-primary project-action-btn" href="https://christophdietrich19-dot.github.io/Kuechenkumpel/" target="_blank" rel="noopener noreferrer">Demo öffnen</a>
+            <a class="btn btn-secondary project-action-btn" href="projekte/kuechenkumpel/">Case Study ansehen</a>
           </div>
         </article>
-
-        <article class="text-card">
-          <span class="card-number">Warum das wichtig ist</span>
-
-          <h2>Aus Idee wird Anwendung.</h2>
-
-          <p>
-            An Küchenkumpel lerne ich nicht nur, wie man eine Oberfläche baut.
-            Es geht auch darum, wie eine Anwendung spricht, wie Nutzer geführt werden
-            und wie aus Rückmeldungen echte Verbesserungen entstehen.
-          </p>
-
-          <p>
-            Genau solche Projekte helfen mir, technische Grundlagen mit Struktur,
-            Gestaltung und Alltagstauglichkeit zu verbinden.
-          </p>
-
-          <div class="feature-list">
-            <article>
-              <span>01</span>
-              <h3>Feedback sammeln</h3>
-              <p>
-                Rückmeldungen aus der Testgruppe zeigen, was wirklich auffällt.
-              </p>
-            </article>
-
-            <article>
-              <span>02</span>
-              <h3>Verbessern</h3>
-              <p>
-                Fehler und Wünsche werden gesammelt, geprüft und Schritt für Schritt umgesetzt.
-              </p>
-            </article>
-
-            <article>
-              <span>03</span>
-              <h3>Weiterdenken</h3>
-              <p>
-                Die App soll nicht nur funktionieren, sondern sich freundlich und sinnvoll anfühlen.
-              </p>
-            </article>
+        <article class="project-card project-highlight">
+          <div class="project-preview"><img src="assets/project-blechroute.png" alt="Konzeptbild zu Blechroute" /></div>
+          <div class="project-head"><span class="project-index">05</span><span class="project-state">Website und App Konzept</span></div>
+          <h3>Blechroute</h3>
+          <p class="project-category-line"><strong>Kategorie:</strong> Konzepte · Web App · Community Idee</p>
+          <p>Blechroute ist ein Website und App Konzept für eine spätere Car Community rund um Touren, Spots, Fotos und gemeinsame Auto Momente.</p>
+          <p>Geplant sind eine eigene Website, spätere App Strukturen, Profile, Routen, Spot Sammlungen und einfache Community Funktionen.</p>
+          <div class="project-data">
+            <div><span>Fokus</span><strong>Car Community, Routen, Spots</strong></div>
+            <div><span>Lernfelder</span><strong>Frontend, Backend, JSON, Node.js / npm</strong></div>
+          </div>
+          <div class="project-actions">
+<a class="btn btn-secondary project-action-btn" href="projekte/konzepte/">Konzept ansehen</a>
           </div>
         </article>
+        <article class="project-card">
+          <div class="project-preview"><img src="assets/project-serviceportal.png" alt="Screenshot des Serviceportals" /></div>
+          <div class="project-head"><span class="project-index">06</span><span class="project-state">Einblick</span></div>
+          <h3>Serviceportal</h3>
+          <p class="project-category-line"><strong>Kategorie:</strong> Konzepte · Einblicke</p>
+          <p>Ein strukturiertes Serviceportal für Kundenfälle, Erinnerungen, Fälligkeiten und interne Abläufe.</p>
+          <p>Der Fokus liegt auf Übersicht, Priorisierung und nachvollziehbarer Bearbeitung.</p>
+          <div class="project-data">
+            <div><span>Fokus</span><strong>Servicefälle, Struktur, Abläufe</strong></div>
+            <div><span>Technik</span><strong>nicht öffentlich verlinkt</strong></div>
+          </div>
+          <div class="project-actions">
+<span class="project-static-action">Screenshot verfügbar</span>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-preview"><img src="assets/project-klarhaus.png" alt="Screenshot von KlarHaus" /></div>
+          <div class="project-head"><span class="project-index">07</span><span class="project-state">Einblick</span></div>
+          <h3>KlarHaus</h3>
+          <p class="project-category-line"><strong>Kategorie:</strong> Konzepte · Einblicke</p>
+          <p>Ein Konzept für die strukturierte Verwaltung von Eigentumswohnungen, Objekten, Kontakten und Abläufen.</p>
+          <p>Ziel ist eine ruhige, klare Oberfläche mit nachvollziehbaren Informationen.</p>
+          <div class="project-data">
+            <div><span>Fokus</span><strong>Verwaltung, Übersicht, Objekte</strong></div>
+            <div><span>Technik</span><strong>nicht öffentlich verlinkt</strong></div>
+          </div>
+          <div class="project-actions">
+<span class="project-static-action">Screenshot verfügbar</span>
+          </div>
+        </article>
+      </div>
+      <div class="hero-actions">
+        <a href="projekte/" class="btn btn-primary">Alle Projekte ansehen</a>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Aktuell im Fokus</p>
-        <h2>Schritt für Schritt mehr Struktur.</h2>
-        <p>
-          Diese Website wächst mit meinen Projekten, meinem Lernen und meinem Weg in die IT.
-          Nicht als fertige Hochglanzfassade, sondern als ehrlicher Überblick darüber, woran ich
-          arbeite und was daraus entsteht.
-        </p>
-      </div>
-
-      <div class="content-grid">
-        <article class="text-card">
-          <span class="card-number">01</span>
-
-          <h2>Webprojekte weiter aufbauen</h2>
-
-          <p>
-            Ich arbeite an kleinen Webseiten, Anwendungen und Konzepten, die nicht nur gut
-            aussehen sollen, sondern verständlich aufgebaut sind und im Alltag Sinn ergeben.
-          </p>
-
-          <p>
-            Dazu gehören eigene Projekte, kleine Demos und Ideen, bei denen Struktur,
-            Gestaltung und Funktion zusammenkommen.
-          </p>
-        </article>
-
-        <article class="text-card">
-          <span class="card-number">02</span>
-
-          <h2>Systeme besser verstehen</h2>
-
-          <p>
-            Neben Webprojekten beschäftige ich mich mit Linux-Systemen, alternativen
-            Betriebssystemen und technischen Abläufen. Mich interessiert, wie Systeme aufgebaut
-            sind, wo Fehler entstehen und wie man Lösungen sauber nachvollzieht.
-          </p>
-
-          <p>
-            Genau dieser praktische Blick passt für mich gut zur Systemintegration.
-          </p>
-        </article>
+      <div class="section-heading"><p class="eyebrow">Arbeitsweise</p><h2>Erst verstehen, dann sauber umsetzen.</h2></div>
+      <div class="process-grid">
+        <div class="process-step"><small>01</small><b>Verstehen</b></div>
+        <div class="process-step"><small>02</small><b>Ordnen</b></div>
+        <div class="process-step"><small>03</small><b>Umsetzen</b></div>
+        <div class="process-step"><small>04</small><b>Testen</b></div>
+        <div class="process-step"><small>05</small><b>Verbessern</b></div>
       </div>
     </section>
 
     <section class="section">
-      <article class="text-card">
-        <span class="card-number">03</span>
-
-        <h2>Womit ich aktuell arbeite</h2>
-
-        <p>
-          Die folgenden Werkzeuge und Themen begleiten meine aktuellen Projekte und Lernschritte.
-          Nicht als starre Skill-Liste, sondern als praktischer Werkzeugkasten, der Stück für Stück wächst.
-        </p>
-
+      <div class="tech-panel">
+        <p class="eyebrow">Technik</p>
+        <h2>Womit ich arbeite und worin ich mich weiterentwickle.</h2>
+        <p>Aktuell arbeite ich vor allem mit HTML, CSS und JavaScript Grundlagen. Dazu kommen Themen rund um Veröffentlichung, Hosting, Projektstruktur und die nächsten Schritte in Richtung größerer Website und App Konzepte.</p>
         <div class="tech-list">
-          <span class="tech-pill">HTML</span>
-          <span class="tech-pill">CSS</span>
-          <span class="tech-pill">JavaScript</span>
-          <span class="tech-pill">JSON</span>
-          <span class="tech-pill">Visual Studio Code</span>
-          <span class="tech-pill">GitHub</span>
-          <span class="tech-pill">GitHub Pages</span>
-          <span class="tech-pill">Netlify</span>
-          <span class="tech-pill">Responsive Layouts</span>
-          <span class="tech-pill">Linux Mint</span>
-          <span class="tech-pill">Arch Linux</span>
-          <span class="tech-pill">Ubuntu Touch</span>
+            <span class="tech-pill">HTML</span>
+            <span class="tech-pill">CSS</span>
+            <span class="tech-pill">JavaScript Grundlagen</span>
+            <span class="tech-pill">Responsive Webdesign</span>
+            <span class="tech-pill">Mobile Darstellung</span>
+            <span class="tech-pill">VS Code</span>
+            <span class="tech-pill">GitHub</span>
+            <span class="tech-pill">Netlify</span>
+            <span class="tech-pill">Webhosting</span>
+            <span class="tech-pill">Domains &amp; SSL</span>
+            <span class="tech-pill">Linux Grundlagen</span>
+            <span class="tech-pill">Browser Entwicklertools</span>
+            <span class="tech-pill">Projektstruktur</span>
+            <span class="tech-pill">Frontend Struktur</span>
+            <span class="tech-pill">Backend Grundlagen</span>
+            <span class="tech-pill">JSON Daten</span>
+            <span class="tech-pill">Node.js / npm</span>
+            <span class="tech-pill">erste JSX Komponenten</span>
+            <span class="tech-pill">YAML Konfiguration</span>
+            <span class="tech-pill">Datenhaltung</span>
+            <span class="tech-pill">Nutzerkonten</span>
+            <span class="tech-pill">Datenschutz Grundlagen</span>
+            <span class="tech-pill">Impressum &amp; Datenschutz</span>
         </div>
-      </article>
+      </div>
     </section>
 
     <section class="section">
       <div class="cta-card">
-        <p class="eyebrow">Nächster Schritt</p>
-
-        <h2>Projekte ansehen oder beruflich Kontakt aufnehmen.</h2>
-
-        <p>
-          Auf der Projektseite findest du aktuelle Webprojekte, Demos und geschützte Einblicke.
-          Für Praktikum, beruflichen Austausch oder passende IT-Bereiche führt der Kontaktbereich weiter.
-        </p>
-
-        <div class="hero-actions">
-          <a href="projekte/" class="btn btn-primary">Projekte ansehen</a>
-          <a href="kontakt/" class="btn btn-secondary">Zur Kontaktseite</a>
-        </div>
+        <p class="eyebrow">Kontakt</p>
+        <h2>Ein guter Austausch bringt oft mehr Klarheit.</h2>
+        <p>Wenn es um beruflichen Austausch, Praktikumsmöglichkeiten oder einen Einblick in echte IT Abläufe geht, bin ich offen für ein Gespräch.</p>
+        <p><strong>E-Mail:</strong> <a href="mailto:kontakt@christoph-it.de">kontakt@christoph-it.de</a></p>
+        <div class="hero-actions"><a href="mailto:kontakt@christoph-it.de" class="btn btn-primary">E-Mail schreiben</a><a href="kontakt/" class="btn btn-secondary">Zur Kontaktseite</a></div>
       </div>
     </section>
   </main>
-
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <strong>Christoph Dietrich</strong>
-        <span>Digitale Lösungen mit Struktur</span>
-      </div>
-
+      <div class="footer-brand"><strong>Christoph Dietrich</strong><span>Digitale Lösungen mit Struktur</span></div>
       <div class="footer-links">
         <a href="./">Start</a>
         <a href="projekte/">Projekte</a>
         <a href="ueber-mich/">Über mich</a>
         <a href="kontakt/">Kontakt</a>
       </div>
-
+      <div class="footer-links footer-secondary-links">
+        <a href="privatpersonen/">Privatpersonen</a>
+        <a href="unternehmen-gewerbe/">Unternehmen & Organisationen</a>
+        <a href="praktikum-beruflicher-kontakt/">Praktikum</a>
+      </div>
       <div class="footer-legal">
         <a href="impressum/">Impressum</a>
         <a href="datenschutz/">Datenschutz</a>
       </div>
-
-      <p class="footer-copy">
-        © <span id="year"></span> Christoph Dietrich
-      </p>
-
-      <p class="footer-tech">
-        Aufgebaut mit HTML, CSS, JavaScript und GitHub Pages.
-      </p>
+      <p class="footer-tech">Kontakt: <a href="mailto:kontakt@christoph-it.de">kontakt@christoph-it.de</a></p>
+      <p class="footer-copy">© <span id="year">2026</span> Christoph Dietrich</p>
+      <p class="footer-tech">Aufgebaut mit HTML, CSS und JavaScript.</p>
     </div>
   </footer>
-
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>
